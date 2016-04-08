@@ -1,3 +1,21 @@
+# The two functions shown here help in caching the
+# inverse of a matrix. 
+#
+# DEMO USE
+# > m <- matrix(1:4, nrow = 2, ncol = 2)
+# > cm <- makeCacheMatrix(m)
+# > cacheSolve(cm)
+#calculating and caching data
+#[,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+#> cacheSolve(cm)
+#getting cached data
+#[,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+#
+
 # Function that cache the inverse of matrix by means of lexical scoping. 
 # Returns a list of local functions (getters/setters) that can access the
 # cached value.
@@ -30,17 +48,3 @@ cacheSolve <- function(m, ...) {
   m$setinv(inv)
   inv
 }
-
-# DEMO USE
-# > m <- matrix(1:4, nrow = 2, ncol = 2)
-# > cm <- makeCacheMatrix(m)
-# > cacheSolve(cm)
-#calculating and caching data
-#[,1] [,2]
-#[1,]   -2  1.5
-#[2,]    1 -0.5
-#> cacheSolve(cm)
-#getting cached data
-#[,1] [,2]
-#[1,]   -2  1.5
-#[2,]    1 -0.5
